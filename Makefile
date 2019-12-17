@@ -11,7 +11,7 @@ run:
 	docker run --rm --name nginx -p 8001:80 -d $(image)
 
 test:
-	curl localhost:8001
+	curl -s localhost:8001
 
 clean:
 	docker image rm $(image)
