@@ -4,26 +4,26 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-		ls
-                make build
+		sh 'ls'
+                sh 'make build'
             }
         }
         stage('Push') {
 	    steps {
 		echo 'Pushing into Docker Hub'
-		make push
+		sh 'make push'
 	    }
 	}		    
         stage('Run') {
 	    steps {
 		echo 'Running nginx on port 8081 in docker'
-		make run
+		sh 'make run'
 	    }
 	}
         stage('Test') {
 	    steps {
 		echo 'Test on localhost using curl command'
-		make test
+		sh 'make test'
 	    }
 	}
 	}
