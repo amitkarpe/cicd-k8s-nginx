@@ -11,7 +11,7 @@ pipeline {
         stage('Push') {
 	    steps {
                 script {
-        		echo 'Pushing into Docker Hub'
+//        		echo 'Pushing into Docker Hub'
                         docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') 
                         {
                                 app.push("${env.BUILD_NUMBER}")
