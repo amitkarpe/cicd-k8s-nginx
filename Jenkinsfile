@@ -4,20 +4,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-		sh 'ls'
                 sh 'make build'
             }
         }
         stage('Push') {
 	    steps {
        		echo 'Pushing into Docker Hub'
-//                script {
-//                        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') 
-//                        {
-//                                app.push("${env.BUILD_NUMBER}")
-//                                app.push("latest")
-//                        }
-//	                }
+		sh 'make push'
 		}
 	}
         stage('Run') {
