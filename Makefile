@@ -7,7 +7,7 @@ push:
 #	docker login -u amitkarpe -p XXXXXXX
 
 run:
-	docker stop --force nginx | echo "" | sleep 3
+	docker stop nginx | echo "" | sleep 10
 	docker run --rm --name nginx -p 8001:80 -d $(image)
 
 test:
