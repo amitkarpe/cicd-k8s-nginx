@@ -10,13 +10,16 @@ pipeline {
         }
         stage('Push') {
 	    steps {
-		echo 'Pushing into Docker Hub'
-                docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
-                        app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
-	        }
+                script {
+        		echo 'Pushing into Docker Hub'
+                        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') 
+                        {
+                                app.push("${env.BUILD_NUMBER}")
+                                app.push("latest")
+                        }
+	                }
 		}
-	} 
+	}
         stage('Run') {
 	    steps {
 		echo 'Running nginx on port 8081 in docker'
