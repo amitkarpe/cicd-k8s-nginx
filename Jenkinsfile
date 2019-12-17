@@ -18,7 +18,6 @@ pipeline {
         stage('Run') {
 	    steps {
 		echo 'Running nginx on port 8081 in docker'
-		sh 'docker stop nginx'
 		sh 'make run'
 	        }
 	    }   
