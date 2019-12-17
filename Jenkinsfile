@@ -12,7 +12,7 @@ pipeline {
        		echo 'Pushing into Docker Hub'
 		echo "${env.BUILD_NUMBER}"
 		sh 'echo ${env.BUILD_NUMBER}'
-		sh 'docker push amitkarpe/nginx:${env.BUILD_NUMBER}'
+//		sh 'docker push amitkarpe/nginx:${env.BUILD_NUMBER}'
 		sh 'make push'
 		}
 	}
