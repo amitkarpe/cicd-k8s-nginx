@@ -11,6 +11,7 @@ pipeline {
         stage('Push') {
 	    steps {
 		echo 'Pushing into Docker Hub'
+		sh 'docker login -u amitkarpe -p 4104042b-39a8-464f-a620-e2b0d983d199'
 		sh 'make push'
 	        }
 	    }		    
