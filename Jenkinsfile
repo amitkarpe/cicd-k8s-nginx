@@ -11,10 +11,14 @@ pipeline {
         stage('Push') {
 	    steps {
 		echo 'Pushing into Docker Hub'
-		sh 'docker login -u amitkarpe -p 4104042b-39a8-464f-a620-e2b0d983d199'
-		sh 'make push'
+//		sh 'docker login -u amitkarpe -p 4104042b-39a8-464f-a620-e2b0d983d199'
+//		sh 'make push'
+                docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
 	        }
-	    }		    
+		}
+	} 
         stage('Run') {
 	    steps {
 		echo 'Running nginx on port 8081 in docker'
