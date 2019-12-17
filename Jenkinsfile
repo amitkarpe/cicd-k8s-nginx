@@ -4,6 +4,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
+		ls
+		pwd
+		make build -f Makefile
                 make build
             }
         }
