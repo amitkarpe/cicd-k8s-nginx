@@ -10,14 +10,14 @@ pipeline {
         }
         stage('Push') {
 	    steps {
-                script {
-//        		echo 'Pushing into Docker Hub'
-                        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') 
-                        {
-                                app.push("${env.BUILD_NUMBER}")
-                                app.push("latest")
-                        }
-	                }
+       		echo 'Pushing into Docker Hub'
+//                script {
+//                        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') 
+//                        {
+//                                app.push("${env.BUILD_NUMBER}")
+//                                app.push("latest")
+//                        }
+//	                }
 		}
 	}
         stage('Run') {
