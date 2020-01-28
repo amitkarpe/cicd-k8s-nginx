@@ -8,8 +8,8 @@ build:
   tagPolicy:
     sha256: {}
   local:
-    push: true
-    useBuildkit: true
+    push: false
+    useBuildkit: false 
     useDockerCLI: false
 deploy:
   kubectl:
