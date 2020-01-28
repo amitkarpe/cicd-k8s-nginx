@@ -19,3 +19,6 @@ clean:
 deploy:
 	kubectl run nginx --image=nginx:1.16-alpine --port 80 --expose -n nginx
 
+k8s:
+	kubectl run --expose --port 80 frontend --image=amitkarpe/nginx --dry-run -o yaml > k8s-pod.yaml
+	
