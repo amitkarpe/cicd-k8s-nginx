@@ -20,7 +20,6 @@ status:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     run: frontend
   name: frontend
@@ -29,17 +28,14 @@ spec:
   selector:
     matchLabels:
       run: frontend
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         run: frontend
     spec:
       containers:
-      - image: amitkarpe/nginx
+      - image: amitkarpe/nginx:latest
+        imagePullPolicy: Always
         name: frontend
         ports:
         - containerPort: 80
-        resources: {}
-status: {}

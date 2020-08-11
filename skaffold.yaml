@@ -1,15 +1,15 @@
 apiVersion: skaffold/v2alpha2
 kind: Config
 metadata:
-  name: nginx-
+  name: nginx
 build:
   artifacts:
     - image: amitkarpe/nginx
   tagPolicy:
     sha256: {}
   local:
-    push: false
-    useBuildkit: false 
+    push: true 
+    useBuildkit: true
     useDockerCLI: false
 deploy:
   kubectl:
