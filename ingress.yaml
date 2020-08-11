@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: frontend.localhost
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: frontend # Nginx Server
+          servicePort: 80
