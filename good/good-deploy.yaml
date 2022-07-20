@@ -34,7 +34,7 @@ spec:
         run: frontend
     spec:
       containers:
-      - image: amitkarpe/nginx:latest
+      - image: ghcr.io/finxflo/work
         imagePullPolicy: Always
         name: frontend
         ports:

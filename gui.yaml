@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+      app: gui
+  name: gui
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  type: NodePort
+  selector:
+    app: gui
+status:
+  loadBalancer: {}
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gui
+  name: gui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gui
+  template:
+    metadata:
+      labels:
+        app: gui
+    spec:
+      containers:
+      - image: ghcr.io/finxflo/fxf
+        imagePullPolicy: Always
+        name: gui
+        ports:
+        - containerPort: 80
