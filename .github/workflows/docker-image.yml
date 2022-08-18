@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 jobs:
   docker:
@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/amd64, linux/arm64, linux/arm/v7
+          platforms: linux/amd64, linux/arm64
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:latest2,${{ secrets.DOCKERHUB_USERNAME }}/nginx:${{ steps.date.outputs.date }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:latest,${{ secrets.DOCKERHUB_USERNAME }}/nginx:${{ steps.date.outputs.date }}
