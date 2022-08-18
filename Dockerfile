@@ -1,3 +1,4 @@
+# Connected with docker hub automated build
 FROM nginx:1.16-alpine
 RUN apk add --no-cache curl
 WORKDIR /usr/share/nginx/html/
