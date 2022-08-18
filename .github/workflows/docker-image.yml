@@ -22,4 +22,4 @@ jobs:
         username: ${{ secrets.USER }}
         password: ${{ secrets.PASS }}
         repository: amitkarpe/nginx
-        tags: v3
+        tags: v4
